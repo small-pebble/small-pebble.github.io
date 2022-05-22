@@ -1,603 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
-  <head>
-    <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Let&#39;s Encrypt根证书过期预警 请在9月30日前及时更新 | gd1214b&#39;s blog</title>
-<meta name="description" content="念念不忘，必有回响" />
-<link rel="shortcut icon" href="https://blog.gd1214b.icu/favicon.ico">
-<link rel="stylesheet" href="https://blog.gd1214b.icu/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="RSS" href="https://blog.gd1214b.icu/atom.xml">
-<script src="https://blog.gd1214b.icu/media/js/jquery.min.js"></script>
-<script src="https://blog.gd1214b.icu/media/js/masonry.pkgd.min.js"></script>
-<script src="https://blog.gd1214b.icu/media/js/aos.js"></script>
-<script src="https://blog.gd1214b.icu/media/js/pace.min.js"></script>
-<script src="https://blog.gd1214b.icu/media/js/view-image.min.js"></script>
-<script src="https://blog.gd1214b.icu/media/js/jquery.magnific-popup.min.js"></script>
-<script src="https://blog.gd1214b.icu/media/js/functions.js"></script>
-<script src="//instant.page/5.1.0" type="module"
-    integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-    <meta name="referrer" content="never">
-    <meta name="description" content="
-安全研究员 Scott Helme 警告称：作为全球最大 HTTPs 证书提供商之一的 Let's Encrypt，即将于下周停用旧版根证书（Root CA）。这意味着数百万计依赖它的网站必须在 9 月 30 日前及时更新，不然将面临不受..." />
-    <meta name="keywords" content="HTTPS,CA证书" />
-    <script src="https://blog.gd1214b.icu/media/js/waterfall.min.js"></script>
-    <script src="https://blog.gd1214b.icu/media/js/prism.min.js"></script>
-  </head>
-  <body>
-            <header id="header" class="grid-container">
-        <!-- start: .menu-wrapper -->
-        <div class="menu-mobile"> 
-          <i class="fa fa-reorder"></i>
-        </div>
-        <div class="menu-wrapper">
-          <div class="">
-            <p align="center">
-              <div class="logo">
-              <a href="https://blog.gd1214b.icu"><img src="\media\images\custom-headerLogo.ico" alt=""></a>
-              <h1 align="center">gd1214b's blog</h1>
-              </div>
-            </p>
-          </div>
-            <!-- start: .main-nav -->
-
-            <nav class="main-nav grid-container grid-parent">
-              <ul id="menu-header" class="menu gradient-effect">
-                <!-- <li class=""><a href="https://blog.gd1214b.icu" class="menu">首页</a></li> -->
-                
-                  <li class="" >
-                    <a href="/" class="menu">
-                      🏠首页
-                    </a>
-                  </li>
-                
-                  <li class="" >
-                    <a href="/archives" class="menu">
-                      🗄️归档
-                    </a>
-                  </li>
-                
-                  <li class="" >
-                    <a href="/tags" class="menu">
-                      🏷️标签
-                    </a>
-                  </li>
-                
-                  <li class="" >
-                    <a href="/post/copyright" class="menu">
-                      ©︎版权声明
-                    </a>
-                  </li>
-                
-                  <li class="" >
-                    <a href="/post/privacy-policy" class="menu">
-                      🔒隐私政策
-                    </a>
-                  </li>
-                
-                  <li class="" >
-                    <a href="/post/disclaimers" class="menu">
-                      🌐免责声明
-                    </a>
-                  </li>
-                
-                  <li class="" >
-                    <a href="/post/lab" class="menu">
-                      🧪实验室
-                    </a>
-                  </li>
-                
-                  <li class="" >
-                    <a href="https://drive.gd1214b.tk" class="menu">
-                      ☁️网盘
-                    </a>
-                  </li>
-                
-                  <li class="" >
-                    <a href="https://figurebed.gd1214b.tk" class="menu">
-                      🖼️图床
-                    </a>
-                  </li>
-                
-                  <li class="" >
-                    <a href="https://status.gd1214b.tk" class="menu">
-                      📊探针
-                    </a>
-                  </li>
-                
-                  <li class="" >
-                    <a href="https://travellings.link" class="menu">
-                      🚇开往
-                    </a>
-                  </li>
-                
-                  <li class="" >
-                    <a href="/post/about" class="menu">
-                      👋关于
-                    </a>
-                  </li>
-                
-                <li class="search-menu-item hide-on-mobile hide-on-tablet"><a href="#search-lightbox" class="lightbox mfp-inline"><i class="fa fa-search-line"></i></a></li>
-              </ul>
-            </nav>
-            <a href="#search-lightbox" class="lightbox epcl-search-button mfp-inline hide-on-tablet hide-on-desktop"><i class="fa fa-search-line"></i></a>
-            <!-- end: .main-nav -->
-            <div class="clear"></div>
-            <div class="border hide-on-tablet hide-on-mobile"></div>
-          </div>    
-          <div class="clear"></div>
-        </div>
-        <!-- end: .menu-wrapper -->
-        <div class="clear"></div>
-      </header>
-      <div class="hide-on-mobile hide-on-tablet hide-on-desktop">
-        <div id="search-lightbox" class="grid-container grid-small grid-parent mfp-hide">
-          <div class="search-wrapper section">
-            <form id="gridea-search-form" data-update="1652956033514" action="/search/index.html" class="search-form" _lpchecked="1">
-              <input type="text" name="q" id="s" value="" class="search-field" placeholder="搜点啥..." aria-label="搜点啥..." required="">
-              <button type="submit" class="submit" aria-label="Submit">
-                <i class="fa fa-search-line"></i>
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-
-      <main id="single" class="main grid-container fullcover no-sidebar aos-init aos-animate" data-aos="fade">
-
-        <div class="center content">
-          <div class="featured-image cover" style="background-image: url('https://blog.gd1214b.icu/post-images/7H8zpCstc.png');">
-            <div class="meta top"> 
-              <time class="meta-info" style="float:left;" datetime="2021-09-30"><i class="fa fa-calendar"></i><span class="lately">8 个月前</span></time>
-              
-              <a href="https://blog.gd1214b.icu/post/7H8zpCstc/#comments" class="comments meta-info" title="">
-                <i class="fa fa-comment remixicon"></i><span class="comment-count valine-comment-count" data-xid="/7H8zpCstc/"> </span>
-              </a>
-              <span id="/7H8zpCstc/" class="leancloud_visitors views-counter meta-info" title=""><i class="fa fa-leancloud remixicon"></i><span class="leancloud-visitors-count"></span></span>
-              
-            </div>
-            <div class="info">
-              <div class="tags ">
-                
-                      <a href="https://blog.gd1214b.icu/tag/https/" class="ctag ctag-0 ctag-https" aria-label="">HTTPS</a>
-                    
-                      <a href="https://blog.gd1214b.icu/tag/ca-zheng-shu/" class="ctag ctag-1 ctag-ca-zheng-shu" aria-label="">CA证书</a>
-                    
-              </div>
-              <h1 class="title ularge white bold">Let&#39;s Encrypt根证书过期预警 请在9月30日前及时更新</h1>
-            </div>
-          </div>
-        </div>  
-
-        <div class="epcl-page-wrapper">
-          <div class="left-content grid-70 np-mobile">
-            <article class="main-article post">
-              <section class="post-content">
-                <div class="text">
-                  <blockquote>
-<p>安全研究员 <a href="https://scotthelme.co.uk/">Scott Helme</a> 警告称：作为全球最大 HTTPs 证书提供商之一的 <a href="https://letsencrypt.org/">Let's Encrypt</a>，即将于下周停用旧版根证书（Root CA）。这意味着数百万计依赖它的网站必须在 9 月 30 日前及时更新，不然将面临不受计算机、设备或 Web 浏览器信任的困扰。</p>
-</blockquote>
-<figure data-type="image" tabindex="1"><img src="https://blog.gd1214b.icu/post-images/1633011766009.png" alt="" loading="lazy"></figure>
-<p>据悉，Let's Encrypt 是一个由非营利性组织 互联网安全研究小组（ISRG）提供的免费、自动化和开放的证书颁发机构(CA)，简单的说，就是为网站提供免费的 SSL/TLS 证书。数据显示，自2014年成立以来，截止2021年9月初，Let’s Encrypt已经总计已经颁发了超过20亿份证书，目前已经为2.6亿个网站提供 TLS 证书。</p>
-<p>早在2020年，Let’s Encrypt就宣布其服务使用的一个由IdenTrust提供的根证书DST Root CA X3将于2021年9月1日到期，它将用自己命名为ISRG Root X1的根证书为过期做准备。此次，Let’s Encrypt停用旧版根证书将有一大批网站遭到影响。</p>
-<p>然而 Let's Encrypt 当前使用的 IdentTrust DST Root CA X3 根证书，也即将于下周过期。对于大部分网站的访客来说，9 月 30 日可能是个波澜不惊的一天。</p>
-<p>但是对于较旧的设备来说，可能还是会遇到一些问题 ——正如 AddTrust External CA Root 在今年 5 月遭遇的根证书过期中断那样，造成Stripe、Red Hat 和 Roku 都受到了影响。</p>
-<p>Scott Helme 在一篇博文中写道：“考虑到 Let's Encrypt 和 AddTrust 之间的体量差异，我有预感 IdenTrust 根证书到期时又会让历史重演，甚至可能引发更多的问题”。</p>
-<p>如果你的网站使用的Let's Encrypt品牌根证书过期的话，就会出现的网站兼容性降低，甚至部分网站不能访问的现象，而这无疑会严重影响用户体验。</p>
-<p>当然，潜在易受影响的，主要是那些不怎么定期更新的设备 —— 比如嵌入式系统、或运行多年前软件版本的智能手机。<br>
-<img src="https://blog.gd1214b.icu/post-images/1633011871565.png" alt="" loading="lazy"><br>
-目前已知以下软件或设备会受到影响：</p>
-<ul>
-<li>OpenSSL &lt;= 1.0.2</li>
-<li>Windows &lt; XP SP3</li>
-<li>macOS &lt; 10.12.1</li>
-<li>iOS &lt; 10 (iPhone 5 及以上的型号可以更新到 iOS 10)</li>
-<li>Android &lt; 7.1.1 (但是 &gt;= 2.3.6 的版本可以在交叉签名了 ISRG Root X1 根证书的前提下工作)</li>
-<li>Mozilla Firefox &lt; 50</li>
-<li>Ubuntu &lt; 16.04</li>
-<li>Debian &lt; 8</li>
-<li>Java 8 &lt; 8u141</li>
-<li>Java 7 &lt; 7u151</li>
-<li>NSS &lt; 3.26</li>
-<li>Amazon FireOS (Silk Browser)</li>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title>Let's Encrypt根证书过期预警 请在9月30日前及时更新 | gd1214b's blog</title>
+  <meta name="Description" content="
+安全研究员 Scott Helme 警告称：作为全球最大 HTTPs 证书提供商之一的 Let's Encrypt，即将于下周停用旧版根证书（Root CA）。这意味着数百万计依赖它的网站必须在 9 月 30 日前及时更新，不然将面临不受...">
+  <meta name="Keywords" content="HTTPS, CA证书">
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2113.3">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
+    p.p2 {margin: 0.0px 0.0px 12.0px 0.0px; text-align: center; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #0000e9; -webkit-text-stroke: #0000e9}
+    p.p5 {margin: 0.0px 0.0px 12.0px 0.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Songti SC'; color: #000000; -webkit-text-stroke: #000000}
+    p.p9 {margin: 0.0px 0.0px 12.0px 0.0px; font: 12.0px 'Songti SC'; color: #000000; -webkit-text-stroke: #000000}
+    p.p10 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
+    p.p11 {margin: 0.0px 0.0px 12.0px 0.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
+    p.p14 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #0000e9; -webkit-text-stroke: #0000e9; min-height: 14.0px}
+    p.p17 {margin: 0.0px 0.0px 12.0px 0.0px; text-align: center; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
+    p.p18 {margin: 0.0px 0.0px 12.0px 0.0px; text-align: center; font: 12.0px 'Songti SC'; color: #000000; -webkit-text-stroke: #000000}
+    p.p19 {margin: 0.0px 0.0px 12.0px 0.0px; text-align: center; font: 12.0px Times; color: #0000e9; -webkit-text-stroke: #0000e9}
+    li.li3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #0000e9; -webkit-text-stroke: #0000e9}
+    li.li6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #000000}
+    li.li7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Songti SC'; color: #000000; -webkit-text-stroke: #000000}
+    li.li10 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
+    span.s1 {font-kerning: none}
+    span.s2 {font-kerning: none; color: #0000e9; -webkit-text-stroke: 0px #0000e9}
+    span.s3 {-webkit-text-stroke: 0px #000000}
+    span.s4 {font: 12.0px 'Apple Color Emoji'; text-decoration: underline ; font-kerning: none}
+    span.s5 {font: 12.0px 'Songti SC'; text-decoration: underline ; font-kerning: none}
+    span.s6 {text-decoration: underline ; font-kerning: none}
+    span.s7 {font: 12.0px Symbol; text-decoration: underline ; font-kerning: none}
+    span.s8 {font: 12.0px Times; font-kerning: none}
+    span.s9 {font-kerning: none; color: #000000; -webkit-text-stroke: 0px #000000}
+    span.s10 {text-decoration: underline ; font-kerning: none; color: #0000e9; -webkit-text-stroke: 0px #0000e9}
+    span.s11 {font: 12.0px 'Songti SC'; text-decoration: underline ; font-kerning: none; color: #0000e9; -webkit-text-stroke: 0px #0000e9}
+    span.s12 {font: 24.0px 'Songti SC'; font-kerning: none}
+    span.s13 {font: 12.0px 'Songti SC'; font-kerning: none}
+    span.s14 {font: 12.0px Times; -webkit-text-stroke: 0px #000000}
+    span.s15 {font: 12.0px Times; font-kerning: none; color: #000000; -webkit-text-stroke: 0px #000000}
+    span.s16 {font: 12.0px Times; text-decoration: underline ; font-kerning: none}
+    span.s17 {font: 12.0px AppleMyungjo; font-kerning: none}
+    ul.ul1 {list-style-type: disc}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1"><a href="https://blog.gd1214b.icu/"><span class="s2"></span></a></span></p>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; text-align: center; font: 24.0px Times; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>gd1214b's blog</b></span></h1>
+<p class="p5"><span class="s1"></span><br></p>
+<ul class="ul1">
+  <li class="li3"><span class="s3"><a href="file:///"><span class="s4">🏠</span><span class="s5">首页</span><span class="s6"><span class="Apple-converted-space"> </span></span></a></span></li>
+  <li class="li3"><span class="s3"><a href="file:///archives"><span class="s4">🗄️</span><span class="s5">归档</span><span class="s6"><span class="Apple-converted-space"> </span></span></a></span></li>
+  <li class="li3"><span class="s3"><a href="file:///tags"><span class="s4">🏷️</span><span class="s5">标签</span><span class="s6"><span class="Apple-converted-space"> </span></span></a></span></li>
+  <li class="li3"><span class="s3"><a href="file:///post/copyright"><span class="s7">©︎</span><span class="s5">版权声明</span><span class="s6"><span class="Apple-converted-space"> </span></span></a></span></li>
+  <li class="li3"><span class="s3"><a href="file:///post/privacy-policy"><span class="s4">🔒</span><span class="s5">隐私政策</span><span class="s6"><span class="Apple-converted-space"> </span></span></a></span></li>
+  <li class="li3"><span class="s3"><a href="file:///post/disclaimers"><span class="s4">🌐</span><span class="s5">免责声明</span><span class="s6"><span class="Apple-converted-space"> </span></span></a></span></li>
+  <li class="li3"><span class="s3"><a href="file:///post/lab"><span class="s4">🧪</span><span class="s5">实验室</span><span class="s6"><span class="Apple-converted-space"> </span></span></a></span></li>
+  <li class="li3"><span class="s3"><a href="https://drive.gd1214b.tk/"><span class="s4">☁️</span><span class="s5">网盘</span><span class="s6"><span class="Apple-converted-space"> </span></span></a></span></li>
+  <li class="li3"><span class="s3"><a href="https://figurebed.gd1214b.tk/"><span class="s4">🖼️</span><span class="s5">图床</span><span class="s6"><span class="Apple-converted-space"> </span></span></a></span></li>
+  <li class="li3"><span class="s3"><a href="https://status.gd1214b.tk/"><span class="s4">📊</span><span class="s5">探针</span><span class="s6"><span class="Apple-converted-space"> </span></span></a></span></li>
+  <li class="li3"><span class="s3"><a href="https://travellings.link/"><span class="s4">🚇</span><span class="s5">开往</span><span class="s6"><span class="Apple-converted-space"> </span></span></a></span></li>
+  <li class="li3"><span class="s3"><a href="file:///post/about"><span class="s4">👋</span><span class="s5">关于</span><span class="s6"><span class="Apple-converted-space"> </span></span></a></span></li>
+  <li class="li6"></li>
 </ul>
-<p>以下软件或设备可能会受到影响：</p>
-<ul>
-<li>Cyanogen &gt; v10</li>
-<li>Jolla Sailfish OS &gt; v1.1.2.16</li>
-<li>Kindle &gt; v3.4.1</li>
-<li>Blackberry &gt;= 10.3.3</li>
-<li>PS4 game console with firmware &gt;= 5.00</li>
-<li>IIS<br>
-鉴于 Android 生态有着长期存在且众所周知的问题，为了防止大多数智能机受到本次事件的影响，Let's Encrypt 已于今年早些时候未雨绸缪地过渡到了自家的 ISRG Root X1 证书（到期时间为 2035 年）。</li>
+<p class="p1"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"></span><br></p>
+<p class="p7"><span class="s8">8 </span><span class="s1">个月前</span></p>
+<p class="p3"><span class="s6"><a href="https://blog.gd1214b.icu/tag/https/">HTTPS</a></span><span class="s9"> <a href="https://blog.gd1214b.icu/tag/ca-zheng-shu/"><span class="s10">CA</span><span class="s11">证书</span></a><span class="Apple-converted-space"> </span></span></p>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 24.0px Times; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Let's Encrypt</b></span><span class="s12"><b>根证书过期预警</b></span><span class="s1"><b> </b></span><span class="s12"><b>请在</b></span><span class="s1"><b>9</b></span><span class="s12"><b>月</b></span><span class="s1"><b>30</b></span><span class="s12"><b>日前及时更新</b></span></h1>
+<p class="p9"><span class="s1">安全研究员</span><span class="s8"> <a href="https://scotthelme.co.uk/"><span class="s10">Scott Helme</span></a> </span><span class="s1">警告称：作为全球最大</span><span class="s8"> HTTPs </span><span class="s1">证书提供商之一的</span><span class="s8"> <a href="https://letsencrypt.org/"><span class="s10">Let's Encrypt</span></a></span><span class="s1">，即将于下周停用旧版根证书（</span><span class="s8">Root CA</span><span class="s1">）。这意味着数百万计依赖它的网站必须在</span><span class="s8"> 9 </span><span class="s1">月</span><span class="s8"> 30 </span><span class="s1">日前及时更新，不然将面临不受计算机、设备或</span><span class="s8"> Web </span><span class="s1">浏览器信任的困扰。</span></p>
+<p class="p10"><span class="s1"></span></p>
+<p class="p9"><span class="s1">据悉，</span><span class="s8">Let's Encrypt </span><span class="s1">是一个由非营利性组织</span><span class="s8"> </span><span class="s1">互联网安全研究小组（</span><span class="s8">ISRG</span><span class="s1">）提供的免费、自动化和开放的证书颁发机构</span><span class="s8">(CA)</span><span class="s1">，简单的说，就是为网站提供免费的</span><span class="s8"> SSL/TLS </span><span class="s1">证书。数据显示，自</span><span class="s8">2014</span><span class="s1">年成立以来，截止</span><span class="s8">2021</span><span class="s1">年</span><span class="s8">9</span><span class="s1">月初，</span><span class="s8">Let’s Encrypt</span><span class="s1">已经总计已经颁发了超过</span><span class="s8">20</span><span class="s1">亿份证书，目前已经为</span><span class="s8">2.6</span><span class="s1">亿个网站提供</span><span class="s8"> TLS </span><span class="s1">证书。</span></p>
+<p class="p11"><span class="s13">早在</span><span class="s1">2020</span><span class="s13">年，</span><span class="s1">Let’s Encrypt</span><span class="s13">就宣布其服务使用的一个由</span><span class="s1">IdenTrust</span><span class="s13">提供的根证书</span><span class="s1">DST Root CA X3</span><span class="s13">将于</span><span class="s1">2021</span><span class="s13">年</span><span class="s1">9</span><span class="s13">月</span><span class="s1">1</span><span class="s13">日到期，它将用自己命名为</span><span class="s1">ISRG Root X1</span><span class="s13">的根证书为过期做准备。此次，</span><span class="s1">Let’s Encrypt</span><span class="s13">停用旧版根证书将有一大批网站遭到影响。</span></p>
+<p class="p11"><span class="s13">然而</span><span class="s1"> Let's Encrypt </span><span class="s13">当前使用的</span><span class="s1"> IdentTrust DST Root CA X3 </span><span class="s13">根证书，也即将于下周过期。对于大部分网站的访客来说，</span><span class="s1">9 </span><span class="s13">月</span><span class="s1"> 30 </span><span class="s13">日可能是个波澜不惊的一天。</span></p>
+<p class="p11"><span class="s13">但是对于较旧的设备来说，可能还是会遇到一些问题</span><span class="s1"> ——</span><span class="s13">正如</span><span class="s1"> AddTrust External CA Root </span><span class="s13">在今年</span><span class="s1"> 5 </span><span class="s13">月遭遇的根证书过期中断那样，造成</span><span class="s1">Stripe</span><span class="s13">、</span><span class="s1">Red Hat </span><span class="s13">和</span><span class="s1"> Roku </span><span class="s13">都受到了影响。</span></p>
+<p class="p9"><span class="s8">Scott Helme </span><span class="s1">在一篇博文中写道：</span><span class="s8">“</span><span class="s1">考虑到</span><span class="s8"> Let's Encrypt </span><span class="s1">和</span><span class="s8"> AddTrust </span><span class="s1">之间的体量差异，我有预感</span><span class="s8"> IdenTrust </span><span class="s1">根证书到期时又会让历史重演，甚至可能引发更多的问题</span><span class="s8">”</span><span class="s1">。</span></p>
+<p class="p9"><span class="s1">如果你的网站使用的</span><span class="s8">Let's Encrypt</span><span class="s1">品牌根证书过期的话，就会出现的网站兼容性降低，甚至部分网站不能访问的现象，而这无疑会严重影响用户体验。</span></p>
+<p class="p9"><span class="s1">当然，潜在易受影响的，主要是那些不怎么定期更新的设备</span><span class="s8"> —— </span><span class="s1">比如嵌入式系统、或运行多年前软件版本的智能手机。</span><span class="s8"><br>
+<br>
+</span><span class="s1">目前已知以下软件或设备会受到影响：</span></p>
+<ul class="ul1">
+  <li class="li10"><span class="s3"></span><span class="s1">OpenSSL &lt;= 1.0.2</span></li>
+  <li class="li10"><span class="s3"></span><span class="s1">Windows &lt; XP SP3</span></li>
+  <li class="li10"><span class="s3"></span><span class="s1">macOS &lt; 10.12.1</span></li>
+  <li class="li10"><span class="s3"></span><span class="s1">iOS &lt; 10 (iPhone 5 </span><span class="s13">及以上的型号可以更新到</span><span class="s1"> iOS 10)</span></li>
+  <li class="li10"><span class="s3"></span><span class="s1">Android &lt; 7.1.1 (</span><span class="s13">但是</span><span class="s1"> &gt;= 2.3.6 </span><span class="s13">的版本可以在交叉签名了</span><span class="s1"> ISRG Root X1 </span><span class="s13">根证书的前提下工作</span><span class="s1">)</span></li>
+  <li class="li10"><span class="s3"></span><span class="s1">Mozilla Firefox &lt; 50</span></li>
+  <li class="li10"><span class="s3"></span><span class="s1">Ubuntu &lt; 16.04</span></li>
+  <li class="li10"><span class="s3"></span><span class="s1">Debian &lt; 8</span></li>
+  <li class="li10"><span class="s3"></span><span class="s1">Java 8 &lt; 8u141</span></li>
+  <li class="li10"><span class="s3"></span><span class="s1">Java 7 &lt; 7u151</span></li>
+  <li class="li10"><span class="s3"></span><span class="s1">NSS &lt; 3.26</span></li>
+  <li class="li10"><span class="s3"></span><span class="s1">Amazon FireOS (Silk Browser)</span></li>
 </ul>
-<p>虽然包括 Android 7.1.1（Nougat）及更早版本的设备并不信任它，但 Let's Encrypt 还是能够通过对自颁证书进行交叉签名的方式，让大多数 Android 设备可在未来三年内避免受到波及。</p>
-<p>但若你还想在 Android 5.0（Lollipop）上安装 Firefox，最好还是尽早为迁移至新平台做打算。</p>
-
-                </div>
-                <div class="clear"></div>
-              </section>
-            </article>
-            <div class="clear"></div>
-
-            <section class="related section">
-              
-              <article class="prev grid-50 tablet-grid-50 grid-parent">
-                <div class="thumb cover lazy loaded" style="background-image: url('https://blog.gd1214b.icu/post-images/o8OKv2apb.jpg');"></div>
-                 <a href="https://blog.gd1214b.icu/post/o8OKv2apb/" class="full-link"></a>
-                 <div class="info">
-                  <time datetime="2021-10-17">2021-10-17</time>
-                  <h4 class="title white no-margin">互联网的刻耳柏洛斯:GFW的DNS审查系统</h4>
-                </div>
-                 <span class="epcl-button red">
-                  <img src="https://blog.gd1214b.icu/media/images/left-arrow.svg" width="15" alt="Left Arrow">
-                </span>
-                <div class="overlay"></div>
-              </article>
-              
-              
-              <article class="next grid-50 tablet-grid-50 grid-parent">
-                <div class="thumb cover lazy loaded" style="background-image: url('https://blog.gd1214b.icu/post-images/MpwqmHDVU.jpg');"></div>
-                 <a href="https://blog.gd1214b.icu/post/MpwqmHDVU/" class="full-link"></a>
-                 <div class="info">
-                  <time datetime="2021-09-20">2021-09-20</time>
-                  <h4 class="title white no-margin">Windows激活之路</h4>
-                </div>
-                 <span class="epcl-button red">
-                  <img src="https://blog.gd1214b.icu/media/images/right-arrow.svg" width="15" alt="Left Arrow">
-                </span>
-                <div class="overlay"></div>
-              </article>
-              
-
-                <div class="clear"></div>
-            </section>
-
-              <div class="clear"></div>
-              
-            
-              <div id="comments" class="bg-white hosted ">
-                
-                  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-<div id="gitalk-container"></div>
-<div class="clear"></div>
-
-<script>
-  var gitalk = new Gitalk({
-    clientID: '814b1bd24e8d16500e7d',
-    clientSecret: '2ca3dfed5c49a6f5905de256bfaffdd3e452f5ee',
-    repo: 'gd1214b.github.io',
-    owner: 'gd1214b',
-    admin: ['gd1214b'],
-    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
-    distractionFreeMode: false  // Facebook-like distraction free mode
-  })
-
-  gitalk.render('gitalk-container')
-</script>
-
-                
-                
-              </div>
-            
-
-            </div>
-          </div>
-      </main>
-
-          <footer id="footer" class="grid-container">
-        <div class="widgets row gradient-effect">
-            <div class="default-sidebar border-effect">
-              <div class="grid-33 tablet-grid-50 mobile-grid-100">
-                <section id="tag_cloud-2" class="widget widget_epcl_posts_thumbs underline-effect">
-                  <h4 class="widget-title title white bordered">最新文章</h4>
-                  
-                  
-                  <article class="item post-0 post type-post status-publish format-standard has-post-thumbnail hentry">
-                    <a href="https://blog.gd1214b.icu/post/VpZwzuT9N/" class="thumb hover-effect">
-                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('https://blog.gd1214b.icu/post-images/VpZwzuT9N.png');"></span>
-                    </a>
-                    <div class="info gradient-effect">
-                      <time datetime="2022-05-11">2022-05-11</time>
-                      <h4 class="title usmall">
-                        <a href="https://blog.gd1214b.icu/post/VpZwzuT9N/">Web Feed 倡议书</a>
-                      </h4>
-                    </div>
-                    <div class="clear"></div>
-                  </article>
-                  
-                  
-                  
-                  <article class="item post-1 post type-post status-publish format-standard has-post-thumbnail hentry">
-                    <a href="https://blog.gd1214b.icu/post/copyright/" class="thumb hover-effect">
-                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('https://blog.gd1214b.icu/post-images/copyright.png');"></span>
-                    </a>
-                    <div class="info gradient-effect">
-                      <time datetime="2022-05-02">2022-05-02</time>
-                      <h4 class="title usmall">
-                        <a href="https://blog.gd1214b.icu/post/copyright/">版权声明</a>
-                      </h4>
-                    </div>
-                    <div class="clear"></div>
-                  </article>
-                  
-                  
-                  
-                  <article class="item post-2 post type-post status-publish format-standard has-post-thumbnail hentry">
-                    <a href="https://blog.gd1214b.icu/post/6L0RlpM8M/" class="thumb hover-effect">
-                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('https://blog.gd1214b.icu/post-images/6L0RlpM8M.png');"></span>
-                    </a>
-                    <div class="info gradient-effect">
-                      <time datetime="2022-04-26">2022-04-26</time>
-                      <h4 class="title usmall">
-                        <a href="https://blog.gd1214b.icu/post/6L0RlpM8M/">使用instant.page js 脚本提升页面加载速度</a>
-                      </h4>
-                    </div>
-                    <div class="clear"></div>
-                  </article>
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  <div class="clear"></div>
-                </section>
-              </div>
-
-              <div class="grid-33 tablet-grid-50 mobile-grid-100">
-                <section id="tag_cloud-2" class="widget widget_tag_cloud underline-effect">
-                  <h4 class="widget-title title white bordered">标签云</h4>
-                  <div class="tagcloud">
-                    
-                      <a href="https://blog.gd1214b.icu/tag/rss/" class="ctag ctag-0 ctag-rss" aria-label="">RSS</a>
-                    
-                      <a href="https://blog.gd1214b.icu/tag/seo/" class="ctag ctag-1 ctag-seo" aria-label="">SEO</a>
-                    
-                      <a href="https://blog.gd1214b.icu/tag/koyeb/" class="ctag ctag-2 ctag-koyeb" aria-label="">Koyeb</a>
-                    
-                      <a href="https://blog.gd1214b.icu/tag/v2ray/" class="ctag ctag-3 ctag-v2ray" aria-label="">v2ray</a>
-                    
-                      <a href="https://blog.gd1214b.icu/tag/gfw/" class="ctag ctag-4 ctag-gfw" aria-label="">GFW</a>
-                    
-                      <a href="https://blog.gd1214b.icu/tag/wang-luo/" class="ctag ctag-5 ctag-wang-luo" aria-label="">网络</a>
-                    
-                      <a href="https://blog.gd1214b.icu/tag/dns/" class="ctag ctag-6 ctag-dns" aria-label="">DNS</a>
-                    
-                      <a href="https://blog.gd1214b.icu/tag/vps/" class="ctag ctag-7 ctag-vps" aria-label="">VPS</a>
-                    
-                      <a href="https://blog.gd1214b.icu/tag/okteto/" class="ctag ctag-8 ctag-okteto" aria-label="">Okteto</a>
-                    
-                      <a href="https://blog.gd1214b.icu/tag/metaverse/" class="ctag ctag-9 ctag-metaverse" aria-label="">Metaverse</a>
-                    
-                      <a href="https://blog.gd1214b.icu/tag/shi-ping/" class="ctag ctag-10 ctag-shi-ping" aria-label="">时评</a>
-                    
-                      <a href="https://blog.gd1214b.icu/tag/pinkbot/" class="ctag ctag-11 ctag-pinkbot" aria-label="">PinkBot</a>
-                    
-                      <a href="https://blog.gd1214b.icu/tag/https/" class="ctag ctag-12 ctag-https" aria-label="">HTTPS</a>
-                    
-                      <a href="https://blog.gd1214b.icu/tag/ca-zheng-shu/" class="ctag ctag-13 ctag-ca-zheng-shu" aria-label="">CA证书</a>
-                    
-                      <a href="https://blog.gd1214b.icu/tag/windows-ji-huo/" class="ctag ctag-14 ctag-windows-ji-huo" aria-label="">Windows激活</a>
-                    
-                      <a href="https://blog.gd1214b.icu/tag/gpl/" class="ctag ctag-15 ctag-gpl" aria-label="">GPL</a>
-                    
-                      <a href="https://blog.gd1214b.icu/tag/onemanager/" class="ctag ctag-16 ctag-onemanager" aria-label="">OneManager</a>
-                    
-                      <a href="https://blog.gd1214b.icu/tag/glitch/" class="ctag ctag-17 ctag-glitch" aria-label="">Glitch</a>
-                    
-                      <a href="https://blog.gd1214b.icu/tag/onedrive/" class="ctag ctag-18 ctag-onedrive" aria-label="">Onedrive</a>
-                    
-                      <a href="https://blog.gd1214b.icu/tag/sui-bi/" class="ctag ctag-19 ctag-sui-bi" aria-label="">随笔</a>
-                    
-                      <a href="https://blog.gd1214b.icu/tag/windows-11/" class="ctag ctag-20 ctag-windows-11" aria-label="">Windows 11</a>
-                    
-                      <a href="https://blog.gd1214b.icu/tag/dnssec/" class="ctag ctag-21 ctag-dnssec" aria-label="">DNSSEC</a>
-                    
-                      <a href="https://blog.gd1214b.icu/tag/telegram/" class="ctag ctag-22 ctag-telegram" aria-label="">Telegram</a>
-                    
-                      <a href="https://blog.gd1214b.icu/tag/github-actions/" class="ctag ctag-23 ctag-github-actions" aria-label="">GitHub Actions</a>
-                    
-                      <a href="https://blog.gd1214b.icu/tag/upptime/" class="ctag ctag-24 ctag-upptime" aria-label="">Upptime</a>
-                    
-                      <a href="https://blog.gd1214b.icu/tag/yun-ying-shang/" class="ctag ctag-25 ctag-yun-ying-shang" aria-label="">运营商</a>
-                    
-                      <a href="https://blog.gd1214b.icu/tag/gridea/" class="ctag ctag-26 ctag-gridea" aria-label="">Gridea</a>
-                    
-                      <a href="https://blog.gd1214b.icu/tag/cdn/" class="ctag ctag-27 ctag-cdn" aria-label="">CDN</a>
-                    
-                      <a href="https://blog.gd1214b.icu/tag/cloudflare/" class="ctag ctag-28 ctag-cloudflare" aria-label="">Cloudflare</a>
-                    
-                      <a href="https://blog.gd1214b.icu/tag/heroku/" class="ctag ctag-29 ctag-heroku" aria-label="">Heroku</a>
-                    
-                      <a href="https://blog.gd1214b.icu/tag/fastly/" class="ctag ctag-30 ctag-fastly" aria-label="">Fastly</a>
-                    
-                      <a href="https://blog.gd1214b.icu/tag/cloudflare-worker/" class="ctag ctag-31 ctag-cloudflare-worker" aria-label="">Cloudflare Worker</a>
-                    
-                      <a href="https://blog.gd1214b.icu/tag/fan-xiang-dai-li/" class="ctag ctag-32 ctag-fan-xiang-dai-li" aria-label="">反向代理</a>
-                    
-                      <a href="https://blog.gd1214b.icu/tag/http/" class="ctag ctag-33 ctag-http" aria-label="">HTTP</a>
-                    
-                      <a href="https://blog.gd1214b.icu/tag/ddos/" class="ctag ctag-34 ctag-ddos" aria-label="">DDoS</a>
-                    
-                      <a href="https://blog.gd1214b.icu/tag/ce-shi/" class="ctag ctag-35 ctag-ce-shi" aria-label="">测试</a>
-                    
-                  </div>
-                  <div class="clear"></div>
-                </section>
-              </div>
-
-              <div class="grid-33 tablet-grid-50 mobile-grid-100">
-                <section id="epcl_about-2" class="widget widget_epcl_about underline-effect">
-                  <h4 class="widget-title title white bordered">关于我</h4>
-                  <div class="avatar">
-                    <a href="" class="translate-effect thumb"><span class="fullimage cover" style="background-image: url(https://blog.gd1214b.icu/images/avatar.png);"></span></a>
-                  </div>
-                  <div class="info">
-                    <h4 class="title small author-name gradient-effect no-margin"><a href="">gd1214b&#39;s blog</a></h4>
-                    <p class="founder">念念不忘，必有回响</p>
-                    <div class="social">
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                    </div> 
-                  </div>
-                  <div class="clear"></div>
-                  </section>
-              </div>
-
-            </div>
-            <div class="clear"></div>
-        </div>
-
-        
-        <p align="center">
-        <!--开往-->
-        <a href="https://travellings.link/" target="_blank" rel="noopener" title="开往-友链接力">
-          <img src="https://travellings.link/assets/logo.gif" alt="开往-友链接力" width="120">
-          </a>
-          ㅤㅤㅤ
-        <!--虫洞-->
-        <a href="https://www.foreverblog.cn/go.html" target="_blank"> <img src="https://img.foreverblog.cn/wormhole_3.gif"
-              alt="" style="width:auto;height:32px;" title="穿梭虫洞-随机访问十年之约友链博客"></a>
-        </p>
-          
-
-        <p align="center">
-            本站访问次数：
-        </p>
-
-          <p align="center">
-            
-            <img src="https://count.getloli.com/get/@gd1214b?theme=rule34"
-          </p>
-
-          <p align="center">
-            <b> gd1214b保留所有权利。 Copyright © 2022 gd1214b. All Rights Reserved. </b>
-          </p>
-
-          <p align="center">
-             <a href="/post/copyright/">版权声明</a> | <a href="/post/privacy-policy/">隐私政策</a> | <a
-                href="/post/disclaimers/">免责声明</a> | <a href="/sitemap.xml">站点地图</a> | <a href="/post/about/">联系站长</a> | <a
-                class="rss" href="/atom.xml" target="_blank">RSS</a> |
-          </p>
-        
-
-        <a href="javascript:void(0)" id="back-to-top" class="epcl-button dark" style="display:none">
-          <i class="fa fa-arrow"></i>
-        </a>
-    </footer>
-    
-    <div class="clear"></div>
-
-        
-
-
-      
-    <script src="https://blog.gd1214b.icu/media/js/functions-post.js"></script>
-
-    </div>
-    <!-- end: #wrapper -->
-  </body>
+<p class="p9"><span class="s1">以下软件或设备可能会受到影响：</span></p>
+<ul class="ul1">
+  <li class="li10"><span class="s3"></span><span class="s1">Cyanogen &gt; v10</span></li>
+  <li class="li10"><span class="s3"></span><span class="s1">Jolla Sailfish OS &gt; v1.1.2.16</span></li>
+  <li class="li10"><span class="s3"></span><span class="s1">Kindle &gt; v3.4.1</span></li>
+  <li class="li10"><span class="s3"></span><span class="s1">Blackberry &gt;= 10.3.3</span></li>
+  <li class="li10"><span class="s3"></span><span class="s1">PS4 game console with firmware &gt;= 5.00</span></li>
+  <li class="li7"><span class="s14"></span><span class="s8">IIS<br>
+</span><span class="s1">鉴于</span><span class="s8"> Android </span><span class="s1">生态有着长期存在且众所周知的问题，为了防止大多数智能机受到本次事件的影响，</span><span class="s8">Let's Encrypt </span><span class="s1">已于今年早些时候未雨绸缪地过渡到了自家的</span><span class="s8"> ISRG Root X1 </span><span class="s1">证书（到期时间为</span><span class="s8"> 2035 </span><span class="s1">年）。</span></li>
+</ul>
+<p class="p9"><span class="s1">虽然包括</span><span class="s8"> Android 7.1.1</span><span class="s1">（</span><span class="s8">Nougat</span><span class="s1">）及更早版本的设备并不信任它，但</span><span class="s8"> Let's Encrypt </span><span class="s1">还是能够通过对自颁证书进行交叉签名的方式，让大多数</span><span class="s8"> Android </span><span class="s1">设备可在未来三年内避免受到波及。</span></p>
+<p class="p9"><span class="s1">但若你还想在</span><span class="s8"> Android 5.0</span><span class="s1">（</span><span class="s8">Lollipop</span><span class="s1">）上安装</span><span class="s8"> Firefox</span><span class="s1">，最好还是尽早为迁移至新平台做打算。</span></p>
+<p class="p1"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"></span><br></p>
+<p class="p10"><span class="s1">2021-10-17</span></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px 'Songti SC'; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>互联网的刻耳柏洛斯</b></span><span class="s8"><b>:GFW</b></span><span class="s1"><b>的</b></span><span class="s8"><b>DNS</b></span><span class="s1"><b>审查系统</b></span></h4>
+<p class="p10"><span class="s1"></span></p>
+<p class="p1"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"></span><br></p>
+<p class="p10"><span class="s1">2021-09-20</span></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Windows</b></span><span class="s13"><b>激活之路</b></span></h4>
+<p class="p10"><span class="s1"></span></p>
+<p class="p1"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"></span><br></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px 'Songti SC'; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>最新文章</b></span></h4>
+<p class="p14"><span class="s1"><a href="https://blog.gd1214b.icu/post/VpZwzuT9N/"></a></span><br></p>
+<p class="p10"><span class="s1">2022-05-11</span></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px Times; color: #0000e9; -webkit-text-stroke: #0000e9"><span class="s6"><a href="https://blog.gd1214b.icu/post/VpZwzuT9N/"><b>Web Feed </b><span class="s5"><b>倡议书</b></span></a></span><span class="s9"><b><span class="Apple-converted-space"> </span></b></span></h4>
+<p class="p1"><span class="s1"></span><br></p>
+<p class="p14"><span class="s1"><a href="https://blog.gd1214b.icu/post/copyright/"></a></span><br></p>
+<p class="p10"><span class="s1">2022-05-02</span></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px 'Songti SC'; color: #0000e9; -webkit-text-stroke: #0000e9"><span class="s6"><a href="https://blog.gd1214b.icu/post/copyright/"><b>版权声明</b></a></span><span class="s15"><b><span class="Apple-converted-space"> </span></b></span></h4>
+<p class="p1"><span class="s1"></span><br></p>
+<p class="p14"><span class="s1"><a href="https://blog.gd1214b.icu/post/6L0RlpM8M/"></a></span><br></p>
+<p class="p10"><span class="s1">2022-04-26</span></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px Times; color: #0000e9; -webkit-text-stroke: #0000e9"><span class="s5"><a href="https://blog.gd1214b.icu/post/6L0RlpM8M/"><b>使用</b><span class="s16"><b>instant.page js </b></span><span class="s6"><b>脚本提升页面加载速度</b></span></a></span><span class="s9"><b><span class="Apple-converted-space"> </span></b></span></h4>
+<p class="p1"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"></span><br></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px 'Songti SC'; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>标签云</b></span></h4>
+<p class="p3"><span class="s6"><a href="https://blog.gd1214b.icu/tag/rss/">RSS</a></span><span class="s9"> <a href="https://blog.gd1214b.icu/tag/seo/"><span class="s10">SEO</span></a> <a href="https://blog.gd1214b.icu/tag/koyeb/"><span class="s10">Koyeb</span></a> <a href="https://blog.gd1214b.icu/tag/v2ray/"><span class="s10">v2ray</span></a> <a href="https://blog.gd1214b.icu/tag/gfw/"><span class="s10">GFW</span></a> <a href="https://blog.gd1214b.icu/tag/wang-luo/"><span class="s11">网络</span></a> <a href="https://blog.gd1214b.icu/tag/dns/"><span class="s10">DNS</span></a> <a href="https://blog.gd1214b.icu/tag/vps/"><span class="s10">VPS</span></a> <a href="https://blog.gd1214b.icu/tag/okteto/"><span class="s10">Okteto</span></a> <a href="https://blog.gd1214b.icu/tag/metaverse/"><span class="s10">Metaverse</span></a> <a href="https://blog.gd1214b.icu/tag/shi-ping/"><span class="s11">时评</span></a> <a href="https://blog.gd1214b.icu/tag/pinkbot/"><span class="s10">PinkBot</span></a> <a href="https://blog.gd1214b.icu/tag/https/"><span class="s10">HTTPS</span></a> <a href="https://blog.gd1214b.icu/tag/ca-zheng-shu/"><span class="s10">CA</span><span class="s11">证书</span></a> <a href="https://blog.gd1214b.icu/tag/windows-ji-huo/"><span class="s10">Windows</span><span class="s11">激活</span></a> <a href="https://blog.gd1214b.icu/tag/gpl/"><span class="s10">GPL</span></a> <a href="https://blog.gd1214b.icu/tag/onemanager/"><span class="s10">OneManager</span></a> <a href="https://blog.gd1214b.icu/tag/glitch/"><span class="s10">Glitch</span></a> <a href="https://blog.gd1214b.icu/tag/onedrive/"><span class="s10">Onedrive</span></a> <a href="https://blog.gd1214b.icu/tag/sui-bi/"><span class="s11">随笔</span></a> <a href="https://blog.gd1214b.icu/tag/windows-11/"><span class="s10">Windows 11</span></a> <a href="https://blog.gd1214b.icu/tag/dnssec/"><span class="s10">DNSSEC</span></a> <a href="https://blog.gd1214b.icu/tag/telegram/"><span class="s10">Telegram</span></a> <a href="https://blog.gd1214b.icu/tag/github-actions/"><span class="s10">GitHub Actions</span></a> <a href="https://blog.gd1214b.icu/tag/upptime/"><span class="s10">Upptime</span></a> <a href="https://blog.gd1214b.icu/tag/yun-ying-shang/"><span class="s11">运营商</span></a> <a href="https://blog.gd1214b.icu/tag/gridea/"><span class="s10">Gridea</span></a> <a href="https://blog.gd1214b.icu/tag/cdn/"><span class="s10">CDN</span></a> <a href="https://blog.gd1214b.icu/tag/cloudflare/"><span class="s10">Cloudflare</span></a> <a href="https://blog.gd1214b.icu/tag/heroku/"><span class="s10">Heroku</span></a> <a href="https://blog.gd1214b.icu/tag/fastly/"><span class="s10">Fastly</span></a> <a href="https://blog.gd1214b.icu/tag/cloudflare-worker/"><span class="s10">Cloudflare Worker</span></a> <a href="https://blog.gd1214b.icu/tag/fan-xiang-dai-li/"><span class="s11">反向代理</span></a> <a href="https://blog.gd1214b.icu/tag/http/"><span class="s10">HTTP</span></a> <a href="https://blog.gd1214b.icu/tag/ddos/"><span class="s10">DDoS</span></a> <a href="https://blog.gd1214b.icu/tag/ce-shi/"><span class="s11">测试</span></a><span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"></span><br></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px 'Songti SC'; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>关于我</b></span></h4>
+<p class="p1"><span class="s1"></span><br></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px Times; color: #0000e9; -webkit-text-stroke: #0000e9"><span class="s6"><b>gd1214b's blog</b></span></h4>
+<p class="p9"><span class="s1">念念不忘，必有回响</span></p>
+<p class="p1"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"></span><br></p>
+<p class="p17"><span class="s2"><a href="https://travellings.link/"><span class="s6"> </span></a></span><span class="s17">ㅤㅤㅤ</span><span class="s1"> <a href="https://www.foreverblog.cn/go.html"><span class="s2"></span></a><span class="Apple-converted-space"> </span></span></p>
+<p class="p18"><span class="s1">本站访问次数：</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p17"><span class="s1"><span class="Apple-converted-space"> </span></span></p>
+<p class="p17"><span class="s1"><b>gd1214b</b></span><span class="s13"><b>保留所有权利。</b></span><span class="s1"><b> Copyright © 2022 gd1214b. All Rights Reserved.<span class="Apple-converted-space"> </span></b></span></p>
+<p class="p19"><span class="s5"><a href="file:///post/copyright/">版权声明</a></span><span class="s9"> | <a href="file:///post/privacy-policy/"><span class="s11">隐私政策</span></a> | <a href="file:///post/disclaimers/"><span class="s11">免责声明</span></a> | <a href="file:///sitemap.xml"><span class="s11">站点地图</span></a> | <a href="file:///post/about/"><span class="s11">联系站长</span></a> | <a href="file:///atom.xml"><span class="s10">RSS</span></a> |<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"></span><br></p>
+</body>
 </html>
